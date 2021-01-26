@@ -12,7 +12,7 @@ How many seconds/minutes/hours are needed to solve these calculations? Please in
 
 ### 1_calcite337
 
-Benchmark input files and results by Prof. James Moraes de Almeida.
+Benchmark input files and results by Prof. James Moraes de Almeida (Jul 2020).
 
 | Machine                  | Cores/Boards  | PWSCF (CPU, s) | Cost Efficiency |
 | -----------------------  |:-------------:|:--------------:| ---------------:|
@@ -21,10 +21,11 @@ Benchmark input files and results by Prof. James Moraes de Almeida.
 | AMD Epyc 7532 (cpu)      | 128           |     348        |   100.00 %      |
 | ---                      | 064           |     623        | **111.71 %**    |
 | nanopetro-intel (cpu)    | 028           |     ---        |   ???.?? %      |
-| nanopetro-amd   (cpu)    | 064           |     ---        |   ???.?? %      |
+| nanopetro-amd   (cpu)    | 064           |    3137        |    19.86 %      |
 
 **Observations**
-- It was considered a price ratio (CPU/GPU) = 3.2 to estimate the cost efficiency;
+- It was considered a price ratio (GPU/CPU) = 3.2 to estimate the cost efficiency;
+- GPU/CPU price ratio has to go down to lower than 2.5 to favor GPUs over CPUs
 - CPUs still present an advantage over GPUs considering price;
 - For DFT, the best strategy is still scaling down CPU cores until max. performance;
 - nanopetro nodes included as a reference.
