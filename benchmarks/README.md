@@ -20,7 +20,7 @@ Benchmark input files and results by Prof. James Moraes de Almeida (Jul 2020).
 | ---                      | 004           |     255        |    76.35 %      |
 | AMD Epyc 7532 (cpu)      | 128           |     348        |   100.00 %      |
 | ---                      | 064           |     623        | **111.71 %**    |
-| nanopetro-intel (cpu)    | 028           |     ---        |   ???.?? %      |
+| nanopetro-intel (cpu)    | 028           |    1799        |    38.69 %      |
 | nanopetro-amd   (cpu)    | 064           |    3137        |    19.86 %      |
 
 **Observations**
