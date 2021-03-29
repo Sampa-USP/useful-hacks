@@ -4,6 +4,7 @@ Which machine should I use? Well, it depends on what you are running. Here we co
 
 1) Calcite + water, 337 atoms, self-consistent calculation (qe, pw)
 2) Gold surface, 112 atoms, self-consistent calculation (qe, pw)
+3) CO2 liquid-phase, 81 atoms, ab-initio molecular dynamics (VASP, IBRION=0, MDALGO=2)
 
 ## Results
 
@@ -51,3 +52,23 @@ This SCF calculation test was forked from [here](https://github.com/electronic-s
 - nanopetro-amd --> AMD Opteron 6376; 
 - nanopetro-intel -->  Intel Xeon Gold 5120;
 - **Best options are highlighted**. In nanopetro-intel, use a combination of 12+8+8 cores (three jobs).
+
+
+### 3_co2aimd_vasp
+
+Benchmark from the leda/dia project (RCGI1, 2021). It comprises 10.000 ab-initio molecular dynamics steps using VASP. The system has 81 atoms (27 CO_2 molecules). Integration step (POTIM) is 1 fs. Please, refer to the folder to acess all the input files. Calculations were performed in Feb 2021 by @camilofs.
+
+| Machine                 | Cores   | Time for 10k steps (min) |    Efficiency  |
+| ----------------------- |:-------:|:------------------------:| --------------:|
+| nanopetro-intel (cpu)   |   28    |         19040            |     100.00 %   |
+| ---                     |   14    |         24110            |     157.94 %   |
+| nanopetro-amd   (cpu)   |   64    |         7488             |     100.00 %   |
+| ---                     |   32    |         9060             |   **165.29 %** |
+
+**Observations**
+- CPU time only; running VASP 5.4.4 with a gcc 9.2.0 compilation, 2020. Efficiency estimated based on a full node allocation;
+- nanopetro-amd --> AMD Opteron 6376; 
+- nanopetro-intel -->  Intel Xeon Gold 5120;
+- **The best option is highlighted**; nanopetro-amd cores perform way better in AIMD. They are the only ones that run each MD step in less than 1 min.
+
+
