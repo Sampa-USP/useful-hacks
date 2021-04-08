@@ -35,5 +35,5 @@ This is shown in the `mod_box.pdb` file.
 If you add this line, it is recommended to make extra equal zero, by running `pdb2lmp` as below:
 
 ```bash
-python ~/Desenvolvimento/pdb2lmp/pdb2lmp.py mod_box.pdb --ignore-dihedrals --charges spce_charges.txt --buffer-length-axis 0.0 --buffer-length-orthogonal 0.0 > mod_topo.lmp
+python /path/to/pdb2lmp.py mod_box.pdb --ignore-dihedrals --charges spce_charges.txt --buffer-length-axis 0.0 --buffer-length-orthogonal 0.0 > mod_topo.lmp
 ```
