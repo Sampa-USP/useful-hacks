@@ -25,15 +25,11 @@ With the `box.pdb` file you can generate the topology with `pdb2lmp`. To have a 
 
 Run the command below and analyze the output file (`topo.lmp`):
 ```bash
-python /path/to/pdb2lmp.py box.pdb --ignore-dihedrals --charges spce_charges.txt > topo.lmp
+python /path/to/pdb2lmp.py box.pdb --ignore-dihedrals --box-size 31.0432 31.0432 31.0432 --charges spce_charges.txt > topo.lmp
 ```
 
 The `--ignore-dihedrals` option is used so the topology does not contain any information about dihedrals at all (as this water model has just 3 sites).
 
-By running `pdb2lmp` as above, the script detects the box size automatically and the default 1 Å buffer is applied for each direction. If you'd rather use the correct box size determined above, you can add the `CRYST1` line to the PDB file.
+By running `pdb2lmp` as above, the script will use the provided box size box size. If you'd rather provide the box dimensions in your .pdb file, you can add the `CRYST1` line to the PDB file.
 This is shown in the `mod_box.pdb` file. 
-If you add this line, it is recommended to make extra equal zero, by running `pdb2lmp` as below:
-
-```bash
-python /path/to/pdb2lmp.py mod_box.pdb --ignore-dihedrals --charges spce_charges.txt --buffer-length-axis 0.0 --buffer-length-orthogonal 0.0 > mod_topo.lmp
-```
+Using the `CRYST1` is necessary if your box is not orthogonal.
